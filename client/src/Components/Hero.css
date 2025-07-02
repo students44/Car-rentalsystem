@@ -9,3 +9,15 @@
   font-size: 14px;
   background-color: red !important;
 } */
+
+.hero-title 
+.hero-underline {
+  display: block;
+  width: 30px;
+  border-bottom: 3px solid pink;
+  margin-top: 8px;
+   transition: width 0.3s ease; 
+}
+.hero-title:hover .hero-underline {
+  width: 180px;
+}
