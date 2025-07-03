@@ -182,10 +182,10 @@ export const dummyUserData = {
 export const dummyCarData = [
     {
         "_id": "67ff5bc069c03d4e45f30b77",
-        "owner": "67fe3467ed8a8fe17d0ba6e2",
+        "owner": "Zahid Khan",
         "brand": "BMW",
         "model": "X5",
-        "image": car_image1,
+        "image": car_image2,
         "year": 2006,
         "category": "SUV",
         "seating_capacity": 4,
@@ -199,7 +199,7 @@ export const dummyCarData = [
     },
     {
         "_id": "67ff6b758f1b3684286a2a65",
-        "owner": "67fe3467ed8a8fe17d0ba6e2",
+        "owner": "Atif khan",
         "brand": "Toyota",
         "model": "Corolla",
         "image": car_image2,
@@ -216,7 +216,7 @@ export const dummyCarData = [
     },
     {
         "_id": "67ff6b9f8f1b3684286a2a68",
-        "owner": "67fe3467ed8a8fe17d0ba6e2",
+        "owner": "Ali khan",
         "brand": "Jeep ",
         "model": "Wrangler",
         "image": car_image3,
@@ -233,7 +233,7 @@ export const dummyCarData = [
     },
     {
         "_id": "68009c93a3f5fc6338ea7e34",
-        "owner": "67fe3467ed8a8fe17d0ba6e2",
+        "owner": "Muneeb Khan",
         "brand": "Ford",
         "model": "Neo 6",
         "image": car_image4,

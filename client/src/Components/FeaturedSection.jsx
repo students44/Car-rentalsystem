@@ -26,7 +26,8 @@ const FeaturedSection = () => {
     {
         dummyCarData.slice(0,8) .map((car)=>(
             <div key={car._id}>
-               <Carcard  car={car}/>
+                {/* here i used the Car card is props to */}
+               <Carcard  car={car}/> 
             </div>
         ))
     }

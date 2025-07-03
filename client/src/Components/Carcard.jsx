@@ -12,20 +12,22 @@ const Carcard = ({car}) => {
     <div className='group rounded-xl overflow-hidden shadow-lg hover:translate-y-1 transition-all duration-500 
     cursor-pointer'>
       <div className='relative h-58 overflow-hidden bg-danger'>
-        <img src={assets.car_image1} alt="first card car image" className='w-full h-full object-fit-cover 
-        transition-transform duration-500 group-hover:scale-105' />
-        {car.isAvailable && <p className='absolute top-4 left-4 bg-primary/90 text-white
-         text-xs px-2.5 py-1 rounded-full'>Available No</p>}
+        <img src={car.image} alt={`${car.brand} ${car.modal}`} className='w-full h-full object-cover 
+         transition-transform duration-500 group-hover:scale-105' />
 
-      <div className='absolute bottom-4 right-4 bg-black/80 backdrop-blur-sm text-white px-3 py-2
-      rounded-lg'>
-      <span className='font-semibold'>{currency}{car.pricePerDay}</span>
-      <span className='text-sm text-white/80'>/ Day</span>
-      </div>
-      </div>
+
+            {car.isAvaliable && <p className='absolute top-4 left-4 bg-primary/90 text-white
+            text-xs px-2.5 py-1 rounded-full'>Available Now</p>}
+        <div className='absolute bottom-4 right-4 bg-black/80 backdrop-blur-sm text-white px-3 py-2
+        rounded-lg'>
+        <span className='font-semibold'>{currency}{car.pricePerDay}</span>
+        <span className='text-sm text-white/80'>/ Day</span>
+        </div>
+        </div>
 
         {/* card data  */}
       <div className='p-4 sm:p-5'>
+
        <div className='flex justify-between items-start mb-2'>
        <div>
         <h3 className='text-lg font-medium'>{car.brand} {car.modal}</h3>
@@ -42,9 +44,17 @@ const Carcard = ({car}) => {
             <img src={assets.fuel_icon} alt="user icon" className='h-4 mr-2' />
             <span> {car.fuel_type}</span>
          </div>
+         <div className='flex items-center text-sm text-muted-foreground'>
+            <img src={assets.carIcon} alt="user icon" className='h-4 mr-2' />
+            <span> {car.transmission}</span>
+         </div>
           <div className='flex items-center text-sm text-muted-foreground'>
             <img src={assets.location_icon} alt="user icon" className='h-4 mr-2' />
             <span> {car.location}</span>
+         </div>
+          <div className='flex  text-md w-100 text-muted-foreground'>
+            {/* <img src={assets.location_icon} alt="user icon" className='h-4 mr-2' /> */}
+            <span> {car.description}</span>
          </div>
         </div>
 
