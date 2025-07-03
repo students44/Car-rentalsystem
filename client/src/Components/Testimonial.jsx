@@ -20,7 +20,7 @@ const Testimonial = () => {
     },
     {
       name: "Atif Shehzad",
-      address: "Swabi",
+      location: "Swabi",
       image:assets.testimonial_image_2,
       Testimonial:"As a first-time renter, I was a bit nervous, but the entire process was simple and hassle-free. The app made everything easy, and I got a great car at an affordable price. 10/10 experience",
     },
