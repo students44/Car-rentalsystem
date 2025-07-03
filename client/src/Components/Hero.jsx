@@ -4,19 +4,14 @@ import "./Hero.css";
 import Swal from "sweetalert2";
 
 const Hero = () => {
-  // state for control the select value
+  // state to control the hero form
   const [pickUpLocation, setPickuPLocation] = useState("");
-
-  // state for to checking the form value
   const [pickUpDate, setPickUpDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
 
 
-  // state to clear the form values after the form submitting
-  const [clearForm, setClearForm] = useState("");
 
-
-
+  // hero form validation
   const handleSearchClick = () => {
     if (!pickUpLocation || !pickUpDate || !returnDate) {
       Swal.fire({
@@ -44,13 +39,21 @@ const Hero = () => {
 
   return (
     <div className="h-screen flex flex-col items-center justify-center gap-14 bg-gray-100 text-center">
+
+
+
+    {/* background  */}
+     
+      
+
+
       <h1 className="text-4xl md:text-5xl font-semibold hero-title">
         Luxury Car on Rent <span className="hero-underline"></span>
       </h1>
 
       <form
         action=""
-        className="flex flex-col h-30 md:flex-row items-start md:items-center justify-between
+        className="flex flex-col h-26 md:flex-row items-start md:items-center justify-between
       p-6 rounded-lg md:rounded-full w-full max-w-80 md:max-w-200 bg-white shadow-[0px_8px_20px_rgba(0,0,0,0,1)]"
       >
         <div className="flex flex-col md:flex-row items-start md:items-center gap-10 min-md:ml-8">
@@ -104,8 +107,8 @@ const Hero = () => {
               required
             />
           </div>
-
-          {/* search button */}
+        </div>
+         {/* search button */}
           <button
             type="button"
             className="flex items-center justify-center gap-1 px-8 py-3 max-sm:mt-4 bg-primary hover:bg-primary-dull
@@ -115,14 +118,13 @@ const Hero = () => {
             <img
               src={assets.search_icon}
               alt="Search icon"
-              className="brightness-300"
+              className="brightness-300 transition-transform duration-600 ease-in-out hover:rotate-300"
             />
             Search
           </button>
-        </div>
       </form>
       {/* hero image */}
-      <img src={assets.main_car} alt="hero main car" className="max-h-74" />
+      <img src={assets.main_car} alt="hero main car" className="max-h-74 transition-transform duration-600 ease-in-out hover:rotate-15" />
     </div>
   );
 };

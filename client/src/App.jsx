@@ -5,6 +5,7 @@ import Home from './Pages/Home';
 import CardDetails from './Pages/CarDetails'
 import Cars from './Pages/Cars';
 import MyBookings from './Pages/MyBookings';
+import Carcard from './Components/Carcard';
 
 
 
