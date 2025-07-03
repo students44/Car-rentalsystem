@@ -34,12 +34,20 @@ const FeaturedSection = () => {
       </div>
 
 
-      <button className='flex items-center justify-center gap-3 px-6 py-2 border-border-color
-      hover:bg-gray-50 rounded-md mt-18 cursor-pointer' onClick={()=>{
-        navigate('/car'); screenTop(0,0)
-      }}>
-        Explored All cars <img src={assets.arrow_icon} alt="explore car arrow icon" />
-      </button>
+    <button
+  className="flex items-center justify-center gap-3 px-6 py-2 border border-border-color bg-white 
+  hover:bg-gray-50 rounded-md mt-18 cursor-pointer shadow transition duration-300 
+  hover:shadow-lg"
+  onClick={() => {
+    navigate('/car');
+    window.scrollTo(0, 0);
+  }}
+>
+  Explore All Cars
+  <img src={assets.arrow_icon} alt="explore car arrow icon"  className=' transition-transform duration-600 
+  ease-in-out hover:rotate-300'/>
+</button>
+
     </div>
   )
 }

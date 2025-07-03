@@ -1,17 +1,22 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { useNavigate } from 'react-router-dom'
+
 
 const Carcard = ({car}) => {
 
 
   const currency =  import.meta.env.VITE_CURRENCY
 
+  //navigate function for card 
+ const navigate = useNavigate()
+
 
 
   return (
-    <div className='group rounded-xl overflow-hidden shadow-lg hover:translate-y-1 transition-all duration-500 
+    <div onClick={()=>{navigate(`/CarDetails/${car._id}`); scrollTo(0,0)}} className='group rounded-xl  overflow-hidden shadow-lg hover:translate-y-1 transition-all duration-500 
     cursor-pointer'>
-      <div className='relative h-58 overflow-hidden bg-danger'>
+      <div className='relative max-w-7xl h-60 overflow-hidden bg-danger'>
         <img src={car.image} alt={`${car.brand} ${car.modal}`} className='w-full h-full object-cover 
          transition-transform duration-500 group-hover:scale-105' />
 
@@ -52,10 +57,9 @@ const Carcard = ({car}) => {
             <img src={assets.location_icon} alt="user icon" className='h-4 mr-2' />
             <span> {car.location}</span>
          </div>
-          <div className='flex  text-md w-100 text-muted-foreground'>
-            {/* <img src={assets.location_icon} alt="user icon" className='h-4 mr-2' /> */}
+          {/* <div className='flex  text-md w-100 text-muted-foreground'>
             <span> {car.description}</span>
-         </div>
+         </div> */}
         </div>
 
       </div>
