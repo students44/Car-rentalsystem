@@ -6,6 +6,7 @@ import CardDetails from './Pages/CarDetails'
 import Cars from './Pages/Cars';
 import MyBookings from './Pages/MyBookings';
 import Carcard from './Components/Carcard';
+import Footer from './Components/Footer';
 
 
 
@@ -32,6 +33,10 @@ const App = () => {
    <Route path='/MyBookings' element = {< MyBookings/>} />
   </Routes>
   
+    {/* footer will be show in all pages except dashboard  */}
+
+    {!isOwnerPath &&  <Footer />}
+     
     </>
   )
 }

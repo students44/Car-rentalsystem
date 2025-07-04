@@ -5,7 +5,6 @@ import FeaturedSection from '../Components/FeaturedSection'
 import Banner from '../Components/Banner'
 import Testimonial from '../Components/Testimonial'
 import Newsletter from '../Components/Newsletter'
-import Footer from '../Components/Footer'
 
 const Home = () => {
   return (
@@ -17,7 +16,7 @@ const Home = () => {
       <Banner />
       <Testimonial />
       <Newsletter />
-       <Footer />
+    
     </>
   )
 }
