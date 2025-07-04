@@ -12,6 +12,7 @@
 /* use the outfit globally on the page */
 *{
     font-family: "Outfit", sans-serif;
+    
 }
 
 
@@ -22,5 +23,23 @@
   --color-primary-dull: #1f58d8;
   --color-light: #f1f59f;
   --color-border-color: #c4c7d2;
+}
+
+
+.testimonial-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid gray; /* Tailwind's pink-500 */
+  border-radius: 0.75rem; /* rounded-xl */
+  transform: scaleX(0) scaleY(0);
+  transform-origin: top left;
+  transition: transform 0.4s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.testimonial-card:hover::before {
+  transform: scaleX(1) scaleY(1);
 }
 
