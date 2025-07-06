@@ -45,8 +45,8 @@ const CarDetails = () => {
          
          {
           [
-          {icon: assets.users_icon, text:`${Car.setting_Capacity} Seats`},
-          {icon: assets.fuel_icon, text: Car.ful_type },
+          {icon: assets.users_icon, text:`${Car.seating_capacity} Seats`},
+          {icon: assets.fuel_icon, text: Car.fuel_type },
           {icon: assets.location_icon, text: Car.location},
         ].map(({icon, text})=>(
           <div key={text} className='flex flex-col items-center bg-light p-4 rounded-lg'>
@@ -60,14 +60,14 @@ const CarDetails = () => {
        {/* description */}
 
        <div>
-        <h1 className='text-xl font-medium mb-3'>Description</h1>
+        <h1 className='text-xl font-medium mb-3 mt-3'>Description</h1>
         <p className='text-gray-500'>{Car.description}</p>
        </div>
        
       
       {/* features */}
       <div>
-         <h1 className='text-xl font-medium mb-3'>Features</h1>
+         <h1 className='text-xl font-medium mb-3 mt-3'>Features</h1>
          <ul className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
           {
             ["360 camera" , "Bluetooth", "Gps" , "Heated Seats" , "Rare View Mirror"].map((item)=>(
