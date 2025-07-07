@@ -2,12 +2,41 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { assets, dummyCarData } from "../assets/assets";
 import Loader from "../Components/Loader";
+import Swal from "sweetalert2";
 
 const CarDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [Car, setCar] = useState(null);
   const Currency = import.meta.env.VITE_CURRENCY;
+
+
+const [pickupDate, setPickupDate] = useState("");
+const [returnDate, setReturnDate] = useState("");
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  if (!pickupDate || !returnDate) {
+    Swal.fire({
+      icon: "warning",
+      title: "Missing Information",
+      text: "Please fill out all fields before submitting.",
+    });
+    return;
+  }
+
+  Swal.fire({
+    icon: "success",
+    title: "Booking Confirmed!",
+    text: `You've booked a car from ${pickupDate} to ${returnDate}.`,
+  });
+
+  setPickupDate("");
+  setReturnDate("");
+};
+
+
 
   useEffect(
     () => {
@@ -102,7 +131,7 @@ const CarDetails = () => {
         </div>
 
         {/* right booking form */}
-        <form className="bg-white text-gray-500 w-full h-100 max-w-[340px] mx-4 md:p-6 p-4 py-8 text-left text-sm rounded-lg shadow-[0px_0px_10px_0px] shadow-black/20">
+        <form onSubmit={handleSubmit} className="bg-white text-gray-500 w-full h-100 max-w-[340px] mx-4 md:p-6 p-4 py-8 text-left text-sm rounded-lg shadow-[0px_0px_10px_0px] shadow-black/20">
           <div className=" py-2 flex justify-between items-center">
             <p className="font-bold">{Currency}{Car.pricePerDay}</p>
             <p>per day</p>
@@ -116,28 +145,34 @@ const CarDetails = () => {
             </label>
             <input
               id="pickup-date"
+               onChange={(e) => setPickupDate(e.target.value)} 
+                value={pickupDate}
               className="w-full border mt-1 bg-indigo-500/5 mb-2 border-gray-500/10 outline-none rounded py-2.5 px-3"
               type="date"
-              min={new new Date() .toISOString().split('T')[0]}
+              // min attribute set the current data user will not chose the previous date
+              min={new Date().toISOString().split('T')[0]} 
+
               required
             />
           </div>
 
           {/* return date */}
           <div className="mt-3">
-            <label htmlFor="pickup-date" className="font-bold">
-              {/* {" "} */}
-              Date
+            <label htmlFor="return-date" className="font-bold">
+              return Date
             </label>
             <input
-              id="date"
+              id="return-date"
+              onChange={(e) => setReturnDate(e.target.value)}  
+              value={returnDate}
               className="w-full border mt-1 bg-indigo-500/5 mb-2 border-gray-500/10 outline-none rounded py-2.5 px-3"
               type="date"
+               min={new Date().toISOString().split('T')[0]}
               required
             />
           </div>
           <button
-            type="button"
+            type="submit"
             className="w-full mb-3 cursor-pointer mt-3 bg-primary hover:bg-primary-dull transition-all active:scale-95 py-2.5 rounded text-white font-medium"
           >
             Book Now
