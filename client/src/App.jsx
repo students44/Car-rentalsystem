@@ -7,6 +7,7 @@ import Cars from './Pages/Cars';
 import MyBookings from './Pages/MyBookings';
 import Carcard from './Components/Carcard';
 import Footer from './Components/Footer';
+// import Loader from './Components/Loader';
 
 
 
