@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Title from '../Components/Title'
-import { assets } from '../assets/assets'
+import { assets, dummyCarData } from '../assets/assets'
+import Carcard from '../Components/Carcard';
 
 const Cars = () => {
 
@@ -24,21 +25,35 @@ const Cars = () => {
         {/* search box */}
 
         <div className='flex items-center bg-white px-4 mt-6 max-w-170 w-full h-14 rounded-2xl shadow '>
-          <img src={assets.search_icon} alt=""  className='w-5  h-5 mr-2'/>
+          <img src={assets.search_icon} alt="search icon"  className='w-5  h-5 mr-2'/>
 
 
            <input onChange={(e)=> setInput(e.target.value)} value={input} type="text" placeholder='Search by modal or features' className='w-full h-full outline-none
            text-gray-500 rounded' />
 
 
-          <img src={assets.filter_icon} alt=""  className='w-5  h-5 mr-2'/>
+          <img src={assets.filter_icon} alt="search filter icon"  className='w-5  h-5 mr-2'/>
         </div>
        </div>
 
 
 
        {/* total number of cars */}
-       <div></div>
+       <div className='px-6 md:px-16 leading-px-24 xl:px-32 mt-10'>
+      <p>Showing {dummyCarData.length} Cars</p>
+       </div>
+
+       {/* display the list of car */}
+       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-4
+       xl:px-20 max-w-7x mx-auto'>
+      {
+        dummyCarData.map((car , index )=>(
+          <div key={index}>
+           <Carcard  car={car}/>
+          </div>
+        ))
+      }
+       </div>
 
     </div>
   )
