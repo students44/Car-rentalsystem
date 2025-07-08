@@ -7,7 +7,7 @@ import Cars from './Pages/Cars';
 import MyBookings from './Pages/MyBookings';
 import Carcard from './Components/Carcard';
 import Footer from './Components/Footer';
-// import Loader from './Components/Loader';
+
 
 
 
@@ -31,7 +31,8 @@ const App = () => {
   <Route  path='/' element = {<Home />}/>
    <Route path='/CarDetails/:id' element = {< CardDetails/>} />
    <Route path='/Cars' element = {<Cars/>} />
-   <Route path='/MyBookings' element = {< MyBookings/>} />
+    <Route path='/my-bookings' element={<MyBookings />} />
+
   </Routes>
   
     {/* footer will be show in all pages except dashboard  */}

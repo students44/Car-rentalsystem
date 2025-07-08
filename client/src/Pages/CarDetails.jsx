@@ -152,7 +152,7 @@ const handleSubmit = (e) => {
               // min attribute set the current data user will not chose the previous date
               min={new Date().toISOString().split('T')[0]} 
 
-              required
+            
             />
           </div>
 
@@ -168,7 +168,7 @@ const handleSubmit = (e) => {
               className="w-full border mt-1 bg-indigo-500/5 mb-2 border-gray-500/10 outline-none rounded py-2.5 px-3"
               type="date"
                min={new Date().toISOString().split('T')[0]}
-              required
+             
             />
           </div>
           <button
