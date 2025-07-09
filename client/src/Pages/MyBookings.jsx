@@ -36,6 +36,28 @@ const MyBookings = () => {
                 {booking.car.location}
               </p>
             </div>
+
+            {/* booking info */}
+
+
+            <div className='md:col-span-2'>
+             <div className='flex items-center gap-2'>
+              <p className='px-3 py-1.5 bg-light rounded'>Booking #{index + 1}</p>
+              {/* <p className={`px-3 py-1 text-sm rounded-full ${booking.status} === 'confirmed ? 'bg-green-400/15
+               text-green-600' :'bg-red-400/15 text-red-600'`}>{booking.status}</p> */}
+
+
+               <p className={`px-3 py-1 text-sm rounded-full ${ booking.status === 'confirmed'? 'bg-green-400/15  text-green-600'
+    : 'bg-red-400/15 text-red-600'
+}`}>
+  {booking.status}
+</p>
+
+             </div>
+            </div>
+
+
+
             </div>
           ))
         }
