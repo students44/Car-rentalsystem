@@ -7,6 +7,8 @@ import Cars from './Pages/Cars';
 import MyBookings from './Pages/MyBookings';
 import Carcard from './Components/Carcard';
 import Footer from './Components/Footer';
+
+// dashboard contents files import
 import Layout from './Pages/owner/Layout';
 import Dashboard from './Pages/owner/Dashboard';
 import AddCar from './Pages/owner/AddCar';
@@ -37,6 +39,8 @@ const App = () => {
    <Route path='/CarDetails/:id' element = {< CardDetails/>} />
    <Route path='/Cars' element = {<Cars/>} />
    <Route path='/my-bookings' element={<MyBookings />} />
+
+   {/* Routes for dashboards */}
    <Route path='/owner' element={<Layout/>} />
    <Route index element={<Dashboard />} />
    <Route path='add-car' element={<AddCar />} />

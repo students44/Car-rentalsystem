@@ -92,6 +92,8 @@ const MyBookings = () => {
               <p>Booked on {booking.createdAt.split('T')[0]}</p>
             </div>
           </div>
+
+          
           </div>
         ))}
       </div>
