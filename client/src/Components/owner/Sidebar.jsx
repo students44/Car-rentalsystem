@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { assets, dummyUserData } from "../../assets/assets";
-import { useLocation } from "react-router-dom";
+import { assets, dummyUserData, ownerMenuLinks } from "../../assets/assets";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
   const user = dummyUserData;
@@ -23,12 +23,18 @@ const Sidebar = () => {
         {/* user image */}
       <div className="group relative">
         <label htmlFor="image">
-          <img
-            src={img ? URL.createObjectURL(image): user?.image ||
-                  "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1283&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            }
-            alt=""
-          />
+ <img
+  src={
+    image
+      ? URL.createObjectURL(image)
+      : user?.image ||
+        "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1283&auto=format&fit=crop&ixlib=rb-4.1.0"
+  }
+  alt="User profile"
+  className="h-9 w-9 md:h-14 md:w-14 rounded-full mx-auto"
+/>
+
+
           <input type="file" id="image" accept="image/*" hidden onChange={ e=> setImage(e.target.files
             [0]
           )}/>
@@ -47,7 +53,21 @@ const Sidebar = () => {
     
     {/* no space between the question mark and full stop */}
     <p className="mt-2 text-base max-md:hidden">{user?.name}</p>
-
+     <div className="w-full">
+        {
+            ownerMenuLinks.map((link , index)=>(
+                <NavLink key={index} to={link.path} className={`relative flex items-center gap-2 w-full py-3 pl-4 first:md:-mt-6 
+                ${link.path === location.pathname ? 'bg-primary text-primary' : 'text-gray-600'}`}>
+                    <img src={link.path === ! location.pathname ? link.coloredIcon :
+                        link.icon
+                    } alt="Car icon" />
+                    <span className="max-md:hidden">{link.name}</span>
+                    <div className={`${link.path === location.pathname && 'bg-primary'} w-1.5
+                    h-8 rounded-l right-0 absolute`}></div>
+                </NavLink>
+            ))
+        }
+     </div>
     </div>
   );
 };

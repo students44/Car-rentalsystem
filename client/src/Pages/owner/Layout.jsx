@@ -1,9 +1,17 @@
 import React from 'react'
+import Sidebar from '../../Components/owner/Sidebar'
+import NavbarOwner from '../../Components/owner/NavbarOwner'
+import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
   return (
-    <div>
-      <h2>Layout components</h2>
+    <div className='flex flex-col'>
+     <NavbarOwner />
+     <div className='flex'>
+      <Sidebar />
+      <Outlet />
+     </div>
+    
     </div>
   )
 }
