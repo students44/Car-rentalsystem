@@ -17,7 +17,7 @@ const Sidebar = () => {
   return (
     <div
       className="relative min-h-screen md:flex flex-col items-center pt-8
-    max-w-13 md:max-w-60 w-full border-r border-border-color text-sm"
+    max-w-13 md:max-w-60 w-full border-r bg-gray-100 border-border-color text-sm"
     >
 
         {/* user image */}
@@ -53,11 +53,12 @@ const Sidebar = () => {
     
     {/* no space between the question mark and full stop */}
     <p className="mt-2 text-base max-md:hidden">{user?.name}</p>
+    
      <div className="w-full">
         {
             ownerMenuLinks.map((link , index)=>(
-                <NavLink key={index} to={link.path} className={`relative flex items-center gap-2 w-full py-3 pl-4 first:md:-mt-6 
-                ${link.path === location.pathname ? 'bg-primary text-primary' : 'text-gray-600'}`}>
+                <NavLink key={index} to={link.path} className={`relative flex items-center gap-2 w-full py-3 pl-4 first:md:-mt-8 
+                ${link.path === location.pathname ? 'bg-primary text-white' : 'text-gray-600'}`}>
                     <img src={link.path === ! location.pathname ? link.coloredIcon :
                         link.icon
                     } alt="Car icon" />
