@@ -4,13 +4,35 @@ import Title from '../../Components/owner/Title';
 
 const Dashboard = () => {
 
+
+  const Currency = import.meta.env.VITE_CURRENCY
+
   const [data , setData] = useState(
     {
       totalCars: 0,
       totalBookings:0,
       pendingBookings:0,
       completedBookings:0,
-      recentBooking: [],
+      recentBooking: [
+        {
+      car: { brand: "Toyota", model: "Corolla" },
+      createdAt: "2025-07-15T14:30:00Z",
+      price: 3500,
+      status: "Confirmed"
+    },
+    {
+      car: { brand: "Honda", model: "Civic" },
+      createdAt: "2025-07-14T09:00:00Z",
+      price: 2800,
+      status: "Pending"
+    },
+    {
+      car: { brand: "Suzuki", model: "Swift" },
+      createdAt: "2025-07-13T11:20:00Z",
+      price: 3000,
+      status: "Cancelled"
+    }
+      ],
       monthlyRevenue: 0 
     })
 
@@ -21,7 +43,18 @@ const dashboardCard = [
   { title: "Confirmed", value: data.completedBookings, icon: assets.listIconColored }
 ];
 
+
+
+
+
+
+
+
+
+    // when the components mount , it load dummy data into the data state.
     useEffect(()=>{
+       console.log('dummyDashboardData:', dummyDashboardData);
+        console.log("Dashboard state data:", data);
       setData(dummyDashboardData)
     }, [])
   return (
@@ -36,7 +69,7 @@ const dashboardCard = [
       dashboardCard.map((card, index)=>(
         <div key={index} className='flex gap-2 items-center justify-between p-4 rounded-md border border-border-color'>
          <div>
-          <h1 className='text-xs text-gray-500'>{card.title}</h1>
+          <h1 className='text-xs text-gray-500 b'>{card.title}</h1>
           <p className='text-lg font-semibold'>{card.value}</p>
          </div>
 
@@ -46,9 +79,44 @@ const dashboardCard = [
 
 
         </div>
-      ))
-     }
+      ))}
      </div>
+
+     <div className='flex flex-wrap items-start gap-6 mb-8 w-full'>
+      {/* recent booking */}
+      <div className='p-4 md:p-6 border-border-color rounded-md max-w-lg w-full'>
+        <h1 className='text-lg font-medium'>Recent Bookings</h1>
+        <p className='text-gray-500'>Latest Customer Booking</p>
+
+        {data.recentBooking?.map((booking,index)=>(
+          <div key={index} className='mt-4 flex items-center justify-between'>
+
+            <div className='flex items-center gap-3'>
+              <div className='hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-primary/10'>
+                <img src={assets.listIconColored} alt="" className='h-5 w-5' />
+              </div>
+                <div>
+              <p>{booking.car.brand} {booking.car.model}</p>
+              <p className='text-sm text-gray-500'>{booking.createdAt.split('T')[0]} {booking.car.model}</p>
+            </div>
+            </div>
+
+          <div className='flex items-center gap-2 font-medium'>
+            <p className='text-sm text-gray-500'>{Currency} {booking.price}</p>
+            <p className='px-3 py-0.5 border border-border-color rounded-full'>{booking.status}</p>
+          </div>
+          
+          </div>
+        ))}
+      </div>
+
+
+      {/* monthly revenue */}
+      <div></div>
+     </div>
+
+
+
     </div>
   )
 }
