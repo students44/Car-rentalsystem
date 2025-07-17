@@ -13,7 +13,7 @@ const Dashboard = () => {
       totalBookings:0,
       pendingBookings:0,
       completedBookings:0,
-      recentBooking: [
+      recentBooking: [ 
         {
       car: { brand: "Toyota", model: "Corolla" },
       createdAt: "2025-07-15T14:30:00Z",
@@ -21,16 +21,10 @@ const Dashboard = () => {
       status: "Confirmed"
     },
     {
-      car: { brand: "Honda", model: "Civic" },
-      createdAt: "2025-07-14T09:00:00Z",
+      car: { brand: "Suzuki", model: "Alto" },
+      createdAt: "2025-07-14T12:10:00Z",
       price: 2800,
       status: "Pending"
-    },
-    {
-      car: { brand: "Suzuki", model: "Swift" },
-      createdAt: "2025-07-13T11:20:00Z",
-      price: 3000,
-      status: "Cancelled"
     }
       ],
       monthlyRevenue: 0 
@@ -45,6 +39,8 @@ const dashboardCard = [
 
 
 
+console.log("Recent Booking Data:", data);
+
 
 
 
@@ -52,11 +48,20 @@ const dashboardCard = [
 
 
     // when the components mount , it load dummy data into the data state.
-    useEffect(()=>{
-       console.log('dummyDashboardData:', dummyDashboardData);
-        console.log("Dashboard state data:", data);
-      setData(dummyDashboardData)
-    }, [])
+ useEffect(() => {
+  console.log("Loading dummy data...");
+
+  // Simulate loading dummy data (remove fetchData)
+  const response = dummyDashboardData;
+
+  console.log("Loaded response:", response);
+
+  setData({
+    ...response,
+    recentBookings: response.recentBookings || []
+  });
+}, []);
+
   return (
     <div className='pt-10 flex-1 md:px-10'>
       
@@ -88,7 +93,8 @@ const dashboardCard = [
         <h1 className='text-lg font-medium'>Recent Bookings</h1>
         <p className='text-gray-500'>Latest Customer Booking</p>
 
-        {data.recentBooking?.map((booking,index)=>(
+        { 
+        data.recentBookings?.map((booking, index)=>(
           <div key={index} className='mt-4 flex items-center justify-between'>
 
             <div className='flex items-center gap-3'>
@@ -107,7 +113,9 @@ const dashboardCard = [
           </div>
           
           </div>
-        ))}
+        ))
+        }
+
       </div>
 
 
