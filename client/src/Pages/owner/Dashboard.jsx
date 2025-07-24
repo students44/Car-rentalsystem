@@ -120,7 +120,9 @@ console.log("Recent Booking Data:", data);
 
 
       {/* monthly revenue */}
-      <div></div>
+      <div>
+        <h1>this is monthly revenue section</h1>
+      </div>
      </div>
 
 

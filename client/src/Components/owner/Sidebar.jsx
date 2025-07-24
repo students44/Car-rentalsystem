@@ -31,7 +31,7 @@ const Sidebar = () => {
         "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1283&auto=format&fit=crop&ixlib=rb-4.1.0"
   }
   alt="User profile"
-  className="h-9 w-9 md:h-14 md:w-14 rounded-full mx-auto"
+  className="h-10 w-10 md:h-14 md:w-14 rounded-full mx-auto"
 />
 
 
