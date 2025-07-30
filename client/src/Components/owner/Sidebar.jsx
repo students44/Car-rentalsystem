@@ -60,7 +60,7 @@ const Sidebar = () => {
     {/* no space between the question mark and full stop */}
     <p className="mt-2 text-base max-md:hidden">{user?.name}</p>
     
-     <div className="w-full">
+     <div className="w-full" style={{height:'1.5rem'}}>
         {
             ownerMenuLinks.map((link , index)=>(
                 <NavLink key={index} to={link.path} className={`relative flex items-center gap-2 w-full py-3 pl-4 first:md:-mt-8 
