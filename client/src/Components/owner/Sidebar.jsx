@@ -69,8 +69,8 @@ const Sidebar = () => {
                         link.icon
                     } alt="Car icon" />
                     <span className="max-md:hidden">{link.name}</span>
-                    <div className={`${link.path === location.pathname && 'bg-primary'} w-1.5
-                    h-8 rounded-l right-0 absolute`}></div>
+                    <div className={`${link.path === location.pathname && 'bg-amber-100'} w-1.5
+                    h-9 rounded-l right-0 absolute`}></div>
                 </NavLink>
             ))
         }

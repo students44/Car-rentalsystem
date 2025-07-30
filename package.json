@@ -2,7 +2,9 @@
   "name": "car-rentalsystem",
   "version": "1.0.0",
   "scripts": {
-    "dev": "cd client && npm run dev"
+    "start": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "dev": "npm run dev --prefix client"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
