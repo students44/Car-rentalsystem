@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import Title from '../../Components/owner/Title';
 import { assets } from '../../assets/assets';
+import Swal from 'sweetalert2';
+
 
 const AddCar = () => {
 
-  
+    const [list, setList] = useState(""); // ✅ Must be here inside the component
   // state for image
 
   const [image , setImage] = useState(null);
@@ -24,9 +26,83 @@ const AddCar = () => {
 
   })
 
-  const onSubmitHandler = async (e)=>{
-    e.preventDefault();
+const onSubmitHandler = async (e) => {
+  e.preventDefault();
+
+  const {
+    brand,
+    modal,
+    year,
+    pricePerDay,
+    category,
+    transmission,
+    fuel_type,
+    seating_capacity,
+    location,
+    description,
+  } = car;
+
+  const missingFields = [];
+
+  if (!brand.trim()) missingFields.push('Brand');
+  if (!modal.trim()) missingFields.push('Model');
+  if (!year || Number(year) <= 0) missingFields.push('Year');
+  if (!pricePerDay || Number(pricePerDay) <= 0) missingFields.push('Price Per Day');
+  if (!category) missingFields.push('Category');
+  if (!transmission) missingFields.push('Transmission');
+  if (!fuel_type) missingFields.push('Fuel Type');
+  if (!seating_capacity || Number(seating_capacity) <= 0) missingFields.push('Seating Capacity');
+  if (!location) missingFields.push('Location');
+  if (!description.trim()) missingFields.push('Description');
+  if (!image) missingFields.push('Image');
+
+  if (missingFields.length > 0) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Incomplete Form',
+      html: `Please fill in: <strong>${missingFields.join(', ')}</strong>`,
+    });
+    return;
   }
+
+  try {
+    console.log('Form submitted!');
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: 'Car listed successfully!',
+    });
+
+    setCar({
+      brand: '',
+      modal: '',
+      year: '',
+      pricePerDay: '',
+      category: '',
+      transmission: '',
+      fuel_type: '',
+      seating_capacity: '',
+      location: '',
+      description: '',
+    });
+
+    setImage(null);
+    setList('Car listed successfully!');
+  } catch (error) {
+    console.error('Form submission error:', error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Submission Failed',
+      text: 'Something went wrong while submitting the form.',
+    });
+  }
+};
+
+
+
+
+
   const Currency = import.meta.env.VITE_CURRENCY
 
 
@@ -68,7 +144,6 @@ const AddCar = () => {
           id="brand"
           type="text"
           placeholder="Enter your car brand"
-          required
           value={car.brand}
           onChange={e => setCar({ ...car, brand: e.target.value })}
           className="border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 py-2 rounded-md outline-none transition-all duration-200 shadow-sm bg-white text-gray-900 placeholder-gray-400"
@@ -82,7 +157,6 @@ const AddCar = () => {
           id="pricePerDay"
           type="text"
           placeholder="Enter your car modal"
-          required
           value={car.modal}
           onChange={e => setCar({ ...car, modal: e.target.value })}
           className="border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 py-2 rounded-md outline-none transition-all duration-200 shadow-sm bg-white text-gray-900 placeholder-gray-400"
@@ -102,7 +176,6 @@ const AddCar = () => {
           id="year"
           type="number"
           placeholder="Enter your car year"
-          required
           value={car.year}
           onChange={e => setCar({ ...car, year : e.target.value })}
           className="border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 py-2 rounded-md outline-none transition-all duration-200 shadow-sm bg-white text-gray-900 placeholder-gray-400"
@@ -115,7 +188,6 @@ const AddCar = () => {
           id="pricePerDay"
           type="number"
           placeholder="Enter your car pricePerDay"
-          required
           value={car.pricePerDay}
           onChange={e => setCar({ ...car, pricePerDay : e.target.value })}
           className="border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 py-2 rounded-md outline-none transition-all duration-200 shadow-sm bg-white text-gray-900 placeholder-gray-400"
@@ -130,7 +202,6 @@ const AddCar = () => {
         <label htmlFor="category" className="mb-1 font-medium text-gray-700">Category</label>
         <select
           id="category"
-          required
           value={car.category}
           onChange={e => setCar({ ...car, category: e.target.value })}
           className="border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 py-2 rounded-md outline-none transition-all duration-200 shadow-sm bg-white text-gray-900"
@@ -158,7 +229,6 @@ const AddCar = () => {
         <label htmlFor="transmission" className="mb-1 font-medium text-gray-700">Transmission</label>
         <select
           id="transmission"
-          required
           value={car.transmission}
           onChange={e => setCar({ ...car, transmission: e.target.value })}
           className="border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 py-2 rounded-md outline-none transition-all duration-200 shadow-sm bg-white text-gray-900"
@@ -178,7 +248,6 @@ const AddCar = () => {
         <label htmlFor="fuel_type" className="mb-1 font-medium text-gray-700">Fuel Type</label>
         <select
           id="fuel_type"
-          required
           value={car.fuel_type}
           onChange={e => setCar({ ...car, fuel_type: e.target.value })}
           className="border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 py-2 rounded-md outline-none transition-all duration-200 shadow-sm bg-white text-gray-900"
@@ -202,7 +271,6 @@ const AddCar = () => {
           id="seating_capacity"
           type="number"
           placeholder="Enter your car seating Capacity"
-          required
           value={car.seating_capacity}
           onChange={e => setCar({ ...car, seating_capacity : e.target.value })}
           className="border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 py-2 rounded-md outline-none transition-all duration-200 shadow-sm bg-white text-gray-900 placeholder-gray-400"
@@ -217,7 +285,6 @@ const AddCar = () => {
       <label htmlFor="Location" className="mb-1 font-medium text-gray-700">Location</label>
         <select
           id="Location"
-          required
           value={car.location}
           onChange={e => setCar({ ...car, location: e.target.value })}
           className="border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 py-2 rounded-md outline-none transition-all duration-200 shadow-sm bg-white text-gray-900"
@@ -248,14 +315,24 @@ const AddCar = () => {
           id="description"
           type="number"
           placeholder=" Enter Your car description here"
-          required
           value={car.description}
           onChange={e => setCar({ ...car, description : e.target.value })} 
           className='px-3 py-2 mt-1 border border-borderColor rounded-md outline-none'
         />
     </div>
+
+
+
+    {/* for submit button */}
+
+    <button type='submit' className='flex items-center gap-2 px-4 py-2.5 mt-4 bg-primary text-white
+    rounded-md font-medium w-max cursor-pointer' > 
+      <img src={assets.tick_icon} alt="" />
+      List Your car
+    </button>
     </form>
    </div>
+
     </div>
   )
 }
