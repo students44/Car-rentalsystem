@@ -19,7 +19,7 @@ const Sidebar = () => {
   return (
     <div
       className="dash-sidebar relative min-h-screen md:flex flex-col items-center pt-8
-    max-w-13 md:max-w-60 w-full border-r bg-gray-100 border-border-color text-sm"
+    max-w-13 md:max-w-60 w-full  border-border-color text-sm"
     >
 
         {/* user image */}
@@ -46,7 +46,11 @@ const Sidebar = () => {
            <img src={assets.edit_icon} alt="edit icon" />
           </div>
         </label>
+
       </div>
+
+      {/* Add vertical gap below user image */}
+      <div style={{ height: '1.5rem' }} />
 
     {image && (
         <button className="absolute top-0 left-0 right-0 flex p-2 gap-1
