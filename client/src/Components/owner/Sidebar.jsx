@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { assets, dummyUserData, ownerMenuLinks } from "../../assets/assets";
 import { NavLink, useLocation } from "react-router-dom";
+import '../../index.css';
+
 
 const Sidebar = () => {
   const user = dummyUserData;
@@ -16,7 +18,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className="relative min-h-screen md:flex flex-col items-center pt-8
+      className="dash-sidebar relative min-h-screen md:flex flex-col items-center pt-8
     max-w-13 md:max-w-60 w-full border-r bg-gray-100 border-border-color text-sm"
     >
 

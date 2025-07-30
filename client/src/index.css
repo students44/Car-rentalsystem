@@ -42,4 +42,56 @@
 .testimonial-card:hover::before {
   transform: scaleX(1) scaleY(1);
 }
+.dash-sidebar{
+  background-color: #ad86f0;
+}
+.dash-sidebar {
+  position: relative;
+  background-color: #ad86f0;
+  overflow: hidden; /* to contain the animated dots */
+}
 
+.dash-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+
+  /* Two layered dot patterns: large white dots + very small white dots */
+  background-image: 
+    radial-gradient(circle, #ffffff 4px, transparent 4px),  /* large dots */
+    radial-gradient(circle, #ffffff 1px, transparent 1px);  /* small dots */
+
+  background-size: 60px 60px, 20px 20px; /* spacing for large and small dots */
+  background-position: 0 0, 0 0;
+
+  opacity: 0.15; /* adjust for overall transparency */
+  animation: moveDotsLarge 20s linear infinite, moveDotsSmall 10s linear infinite;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes moveDotsLarge {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 120px 120px, 0 0; /* large dots move diagonally */
+  }
+}
+
+@keyframes moveDotsSmall {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 0, 40px 40px; /* small dots move diagonally */
+  }
+}
+
+/* Ensure sidebar content is above dots */
+.dash-sidebar > * {
+  position: relative;
+  z-index: 1;
+}
+   

@@ -1,4 +1,9 @@
 {
+  "name": "car-rentalsystem",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "cd client && npm run dev"
+  },
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@tailwindcss/vite": "^4.1.11",
