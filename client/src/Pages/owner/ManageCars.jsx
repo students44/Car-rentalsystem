@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { dummyCarData } from '../../assets/assets';
+import { assets, dummyCarData } from '../../assets/assets';
 import Title from '../../Components/owner/Title';
 import Cars from '../Cars';
 
@@ -67,7 +67,10 @@ const ManageCars = () => {
           </span>
             </td>
 
-           
+           <td className='p-3 flex items-center gap-2'>
+            <img src={car.isAvaliable ? assets.eye_close_icon : assets.eye_icon} alt=""  className='cursor-pointer'/>
+            <img src={ assets.delete_icon}alt=""  className='cursor-pointer'/>
+           </td>
           </tr>
          ))}
         </tbody>
