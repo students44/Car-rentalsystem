@@ -3,7 +3,7 @@ import { assets, menuLinks } from "../assets/assets";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
-const Navbar = ({ setShowLOgin }) => {
+const Navbar = ({ setShowLogin }) => {
   const location = useLocation();
 
   // toggle for small mobile screen
@@ -61,8 +61,8 @@ const Navbar = ({ setShowLOgin }) => {
           <button
             type="button"
             className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition-all
-  text-white rounded-lg "
-            onClick={() => setShowLOgin(true)}
+         text-white rounded-lg "
+            onClick={() => setShowLogin(true)}
           >
             Login
           </button>

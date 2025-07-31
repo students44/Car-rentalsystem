@@ -5,8 +5,6 @@ import Cars from '../Cars';
 
 const ManageCars = () => {
 
-
-
   const Currency = import.meta.env.VITE_CURRENCY
 
   const [car , setCar] = useState([]);

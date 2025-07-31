@@ -14,6 +14,8 @@ import AddCar from './Pages/owner/AddCar';
 import ManageCars from './Pages/owner/ManageCars';
 import ManageBookings from './Pages/owner/ManageBookings';
 
+import Login from './Components/Login';
+
 const App = () => {
   const [showLoginForm, setShowLoginForm] = useState(false);
 
@@ -22,6 +24,8 @@ const App = () => {
 
   return (
     <>
+     {showLoginForm && <Login setShowLoginForm={setShowLoginForm} />}
+    {/* <Login setShowLoginForm ={setShowLoginForm} /> */}
       {!isOwnerPath && <Navbar setShowLogin={setShowLoginForm} />}
 
       <Routes>
