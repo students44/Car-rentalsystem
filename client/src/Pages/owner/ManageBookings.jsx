@@ -23,22 +23,22 @@ const ManageBookings = () => {
         subtitle="Track all customers bookings, Approve or cancel request, and manage statuses."
       />
 
-      <div className='max-w-3xl w-full rounded-md overflow-hidden border border-color mt-6'>
-        <table className='w-full border-collapse text-left text-sm text-gray-600'>
-          <thead className='text-gray-500'>
-            <tr>
-              <th className='p-3 font-medium'>Car</th>
-              <th className='p-3 font-medium max-md:hidden'>Date Range</th>
-              <th className='p-3 font-medium'>Total</th>
-              <th className='p-3 font-medium max-md:hidden'>Payment</th>
-              <th className='p-3 font-medium'>Actions</th>
+      <div className='max-w-3xl w-full rounded-md overflow-hidden border border-gray-300 mt-6'>
+        <table className='w-full border-collapse text-left text-sm text-gray-600 shadow-lg rounded-md'>
+          <thead className='text-white' style={{ backgroundColor: '#AD86F0' }}>
+            <tr className='border-b border-borderColor'>
+              <th className='p-3 font-medium border-r border-borderColor'>Car</th>
+              <th className='p-3 font-medium max-md:hidden border-r border-borderColor'>Date Range</th>
+              <th className='p-3 font-medium border-r border-borderColor'>Total</th>
+              <th className='p-3 font-medium max-md:hidden border-r border-borderColor'>Payment</th>
+              <th className='p-3 font-medium border-r border-borderColor'>Actions</th>
             </tr>
           </thead>
 
           <tbody>
             {bookings.map((booking, index) => (
-              <tr key={index} className='border-top border-borderColor text-gray-500'>
-                <td className='p-3 flex items-center gap-3'>
+              <tr key={index} className='border-b border-borderColor text-gray-500'>
+                <td className='p-3 flex items-center gap-3 bg-gray-50'>
                   <img
                     src={booking.car.image}
                     alt=""
@@ -49,19 +49,19 @@ const ManageBookings = () => {
                   </p>
                 </td>
 
-                <td className='p-3 max-md:hidden'>
+                <td className='p-3 max-md:hidden bg-gray-50'>
                   {booking.pickupDate.split('T')[0]} to {booking.returnDate.split('T')[0]}
                 </td>
 
-                <td className='p-3'>
+                <td className='p-3 bg-gray-50'>
                   {Currency}{booking.price}
                 </td>
 
-                <td className='p-3 max-md:hidden'>
+                <td className='p-3 max-md:hidden bg-gray-50'>
                   <span className='bg-gray-100 px-3 py-1 rounded-full text-xs'>Offline</span>
                 </td>
 
-                <td className='p-3'>
+                <td className='p-3 bg-gray-50'>
                   {booking.status === 'pending' ? (
                     <select value={booking.status} className="border border-gray-300 px-2 py-1 text-xs rounded-md
                     outline-none focus:border-primary">
