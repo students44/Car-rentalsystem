@@ -31,7 +31,7 @@ const Testimonial = () => {
 
 
   return (
-    <div className="py-28 px-6 md:px-16 lg:px-24 xl:px-44">
+    <div className="py-28 px-6 md:px-16 lg:px-24 xl:px-44" style={{ backgroundColor: '#F3F4F6' }}>
       {/* mount title components */}
       <Title
         title="What Your Customer Says"

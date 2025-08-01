@@ -12,7 +12,7 @@ const MyBookings = () => {
   }, []);
 
   return (
-    <div className="px-6 mt-16 lg:px-24 xl:px-32 2xl:px-48 text-sm max-w-7xl">
+    <div className="px-6 pt-16 lg:px-24 xl:px-32 2xl:px-48 text-sm max-w-8xl" style={{ backgroundColor: '#F3F4F6' }}>
       <Title
         title="My Bookings"
         subtitle="View and manage all your car bookings"

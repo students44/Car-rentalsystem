@@ -12,10 +12,10 @@ const Cars = () => {
 
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#F3F4F6' }}>
       
       {/* search bar  section*/}
-       <div className='flex flex-col items-center py-20 bg-gray-100 max-md:px-4'>
+       <div className='flex flex-col items-center py-20 max-md:px-4' >
         <Title title='Available Cars' subtitle='A Seamless and User-Friendly Platform to Rent Cars Effortlessly, 
         Offering a Wide Range of Vehicles to Suit Every Journey and Budget'/>
 

@@ -76,7 +76,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="px-6 md:px-16 lg:px-24 xl:px-32 mt-40 pt-5 text-sm text-gray-500 bg-gray-100">
+    <div className="px-6 md:px-16 lg:px-24 xl:px-32  pt-15 text-sm text-gray-500 bg-gray-100">
       <div className="flex flex-col md:flex-row items-start justify-between gap-10 pb-10  border-border-color  text-gray-500 border-b">
         <div>
           <img className="w-34 md:w-32" src={assets.logo} alt="footer logo" />
