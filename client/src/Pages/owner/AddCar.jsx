@@ -108,7 +108,7 @@ const onSubmitHandler = async (e) => {
 
 
   return (
-    <div className='px-4 py-10 md:px-10 flex-1'>
+    <div className='px-4 py-10 md:px-10 flex-1' style={{ backgroundColor: '#F3F4F6' }}>
      <Title  title= "Add New Car " subtitle= "Fill in details to list a new car for booking, including pricing, availability, and car specification"/>
    
    

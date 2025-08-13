@@ -63,7 +63,7 @@ console.log("Recent Booking Data:", data);
 }, []);
 
   return (
-    <div className='pt-10 flex-1 md:px-10'>
+    <div className='pt-10 flex-1 md:px-10' style={{ backgroundColor: '#F3F4F6' }}>
       
       <Title  title= "Admin dashBoard"  subtitle= "Monitor Your all platform performance including total cars booking, revenue and recent activities"/>
      

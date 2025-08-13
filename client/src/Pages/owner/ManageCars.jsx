@@ -20,7 +20,7 @@ const ManageCars = () => {
 
 
   return (
-    <div className='px-4 pt-10 md:px-10 w-full'>
+    <div className='px-4 pt-10 md:px-10 w-full' style={{ backgroundColor: '#F3F4F6' }}>
       
      <Title  title="Manage cars"  subtitle="View All listed Cars, Update their details, or removed
      them from the booking Platform"/>

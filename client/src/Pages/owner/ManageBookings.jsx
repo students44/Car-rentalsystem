@@ -17,7 +17,7 @@ const ManageBookings = () => {
   }, []);
 
   return (
-    <div className='px-4 pt-10 md:px-10 w-full'>
+    <div className='px-4 pt-10 md:px-10 w-full' style={{ backgroundColor: '#F3F4F6' }}>
       <Title
         title="Manage Bookings"
         subtitle="Track all customers bookings, Approve or cancel request, and manage statuses."
@@ -45,7 +45,7 @@ const ManageBookings = () => {
                     className='w-12 h-12 rounded-md object-cover aspect-square'
                   />
                   <p className='font-medium max-md:hidden'>
-                    {booking.car.brand} {booking.car.modal}
+                    {booking.car.brand} {booking.car.model}
                   </p>
                 </td>
 
@@ -63,8 +63,15 @@ const ManageBookings = () => {
 
                 <td className='p-3 bg-gray-50'>
                   {booking.status === 'pending' ? (
-                    <select value={booking.status} className="border border-gray-300 px-2 py-1 text-xs rounded-md
-                    outline-none focus:border-primary">
+                    <select
+                      value={booking.status}
+                      className="border border-gray-300 px-2 py-1 text-xs rounded-md outline-none focus:border-primary"
+                      onChange={(e) => {
+                        const updatedBookings = [...bookings];
+                        updatedBookings[index].status = e.target.value;
+                        setBookings(updatedBookings);
+                      }}
+                    >
                       <option value="pending">Pending</option>
                       <option value="confirm">Confirm</option>
                       <option value="cancel">Cancel</option>
